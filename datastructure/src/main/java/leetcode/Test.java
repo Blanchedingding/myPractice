@@ -16,6 +16,7 @@ public class Test {
 		System.out.println(Integer.toBinaryString(224));
 		System.out.println(Integer.toBinaryString(240));
 		System.out.println(Integer.toBinaryString(248));
+
 	}
 
 	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
