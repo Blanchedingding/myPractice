@@ -39,7 +39,6 @@ public class ThreeSumClosest {
                 }
             }
         }
-
         if(minSum == Integer.MIN_VALUE) return maxSum;
         if(maxSum == Integer.MAX_VALUE) return minSum;
         if(Math.abs(target - minSum) < Math.abs(maxSum - target)){
