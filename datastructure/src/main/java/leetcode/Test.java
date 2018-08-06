@@ -2,9 +2,46 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Test {
+
+
+	public List<List<Integer>> largeGroupPositions(String S) {
+		if(S.length() > 0){
+			List<List<Integer>> r = new ArrayList<List<Integer>>();
+			char[] array = S.toCharArray();
+			int length = array.length;
+			char currentChar = array[0];
+			int startIndex = 0, endIndex = 0;
+			for(int i = 1; i < length; i++){
+				if(array[i] == currentChar){
+					endIndex ++;
+				} else {
+					if(endIndex - startIndex >= 2){
+						List<Integer> a = new ArrayList<Integer>();
+						a.add(startIndex);
+						a.add(endIndex);
+						r.add(a);
+					}
+					startIndex = i;
+					endIndex = i;
+					currentChar = array[i];
+				}
+			}
+			if(endIndex - startIndex >= 2){
+				List<Integer> a = new ArrayList<Integer>();
+				a.add(startIndex);
+				a.add(endIndex);
+				r.add(a);
+			}
+			return r;
+		} else {
+			return null;
+		}
+	}
+
 
 	
 	public static void main(String[] args) {
@@ -18,6 +55,7 @@ public class Test {
 		System.out.println(Integer.toBinaryString(248));
 
 	}
+
 
 	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
