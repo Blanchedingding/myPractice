@@ -1,4 +1,4 @@
-package leetcode;
+package divideAndConquer;
 
 
 //divide-and-conquer

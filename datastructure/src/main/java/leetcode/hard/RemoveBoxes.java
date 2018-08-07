@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.hard;
 
 /**
  * Given several boxes with different colors represented by different positive numbers.
