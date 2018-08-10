@@ -1,7 +1,6 @@
 package leetcode.hard;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,13 +34,9 @@ public class mergeKLists {
         g.next = h;
         mergeKLists m = new mergeKLists();
         ListNode l = m.mergeKLists(new ListNode[]{a,d,g});
-//        while(a != null){
-//            System.out.println(a.val);
-//            a = a.next;
-//        }
 
         while(l != null){
-            System.out.println(l.val);
+            System.out.println("result: " + l.val);
             l = l.next;
         }
 
@@ -50,14 +45,17 @@ public class mergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists.length == 0) return null;
         int n = lists.length;
-        ListNode head  = lists[0];
-        for (int i = 1; i < lists.length; i++) {
-            if(lists[i].val < head.val) {
-                head = lists[i];
-                lists[i] = lists[i].next;
+        ListNode head ;
+        int c = Integer.MAX_VALUE, u = -1;
+        for (int i = 0; i < lists.length; i++) {
+            if( lists[i] != null && lists[i].val < c) {
+                c = lists[i].val;
+                u = i;
             }
         }
-
+        if (u == -1) return null;
+        head = lists[u];
+        lists[u] = lists[u].next;
         ListNode t = head;
         while(true){
             int flag = 0;
@@ -74,18 +72,23 @@ public class mergeKLists {
                     index.add(i);
                 }
             }
-            System.out.println(flag);
-            System.out.println(index);
             for (int i = 0; i < index.size(); i++) {
                 t.next = lists[index.get(i)];
                 t = t.next;
                 lists[index.get(i)] = lists[index.get(i)].next;
-                System.out.println("----" + lists[index.get(i)].next.val);
             }
-            if(flag >= n - 1) break;
+            if(flag >= n-1) break;
         }
-
         return head;
+    }
+
+
+    public void print(ListNode r){
+        ListNode e = r;
+        while(e != null){
+            System.out.println("== " + e.val);
+            e = e.next;
+        }
     }
 
 
