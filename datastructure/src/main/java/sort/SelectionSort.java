@@ -15,9 +15,7 @@ public class SelectionSort {
 			int temp = a[i];
 			a[i] = a[minIndex];
 			a[minIndex] = temp;
-			
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -26,7 +24,5 @@ public class SelectionSort {
 		for(int i = 0; i < a.length; i ++) {
 			System.out.println(a[i]);
 		}
-		
 	}
-
 }

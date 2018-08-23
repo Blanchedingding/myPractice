@@ -22,7 +22,6 @@ public class QuickSort {
 		}
 		swap(a, right, pivotIndex);
 		return pivotIndex;
-		
 	}
 	
 	public static void swap(int[] a, int i, int j) {
@@ -37,7 +36,6 @@ public class QuickSort {
 		for(int i = 0; i < a.length; i ++) {
 			System.out.println(a[i]);
 		}
-		
 	}
 
 }

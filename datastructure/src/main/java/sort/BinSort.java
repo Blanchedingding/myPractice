@@ -35,6 +35,5 @@ public class BinSort {
 		int[] a = new int[] { 99, 65, 24, 47, 50, 88,33, 66, 67, 31, 18 };
 		sort(a, 99/10 + 1);
 	}
-	
 
 }

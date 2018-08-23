@@ -20,7 +20,6 @@ public class BubbleSort {
 				break;
 			}
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -29,7 +28,6 @@ public class BubbleSort {
 		for(int i = 0; i < a.length; i ++) {
 			System.out.println(a[i]);
 		}
-		
 	}
 
 }

@@ -12,7 +12,6 @@ public class BucketSort {
 	 * 由于同一桶中的记录其关键字不尽相同，所以必须采用关键字比较的排序方法(通常用插入排序)对各个桶进行排序，
 	 * 然后依次将各非空桶中的记录连接(收集)起来即可。
 	 */
-
 	public static void sort(double[] a, int binCount) {
 		List<Double>[] b = new LinkedList[binCount];
 		for(int k = 0; k < binCount; k++) {

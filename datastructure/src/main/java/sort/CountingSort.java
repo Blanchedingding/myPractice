@@ -3,7 +3,7 @@ package sort;
 public class CountingSort {
 	
 	//O(n),stable
-	//a数组为0-k之间的整数数组
+	//a数组为0-k之间的整数数组,有较多重复元素
 	public static int[] sort(int[] a, int k) {
 		int[] b = new int[a.length];
 		int[] count = new int[k];
@@ -12,7 +12,6 @@ public class CountingSort {
 		}
 		for(int j = 1; j < k; j++) {
 			count[j] += count[j-1];
-//			System.out.println(count[j]);
 		}
 		for(int m = a.length - 1; m >= 0; m --) {
 			b[count[a[m]]-1] = a[m];
@@ -27,8 +26,5 @@ public class CountingSort {
 		for(int i = 0; i < b.length; i ++) {
 			System.out.println(b[i]);
 		}
-		
 	}
-	
-
 }

@@ -38,8 +38,7 @@ public class MergeSort {
 			}
 		}
 	}
-	
-	
+
 	///////////////////////////////////////////////////////////
 	//计算数组中的逆序对数量：i<j，A[i]>A[j]，则(i,j)为一个逆序对
 	public static int countInversion(int[] a, int left, int right) {
@@ -104,6 +103,5 @@ public class MergeSort {
 		int[] b = new int[] {2,3,8,6,1};
 		int count = countInversion(b,0,b.length-1);
 		System.out.println(count);
-		
 	}
 }

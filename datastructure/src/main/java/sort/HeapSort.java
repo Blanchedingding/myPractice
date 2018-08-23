@@ -31,7 +31,7 @@ public class HeapSort {
 		}
 	}
 	
-	//排序时每次取出第一个最大的之后，吧最后一个元素放到第一个，在一层层向下调整
+	//排序时每次取出第一个最大的之后，把最后一个元素放到第一个，再一层层向下调整
 	public static void adjust(int[] a, int lastIndex, int currentIndex) {
 		int l = left(currentIndex);
 		int r = right(currentIndex);
