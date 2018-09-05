@@ -1,4 +1,4 @@
-package graph;
+package graph.basic;
 
 import java.io.IOException;
 import java.util.Scanner;

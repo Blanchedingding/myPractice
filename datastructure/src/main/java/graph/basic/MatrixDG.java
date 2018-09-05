@@ -1,36 +1,23 @@
-package graph;
+package graph.basic;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 /**
  * 邻接矩阵有向图
  * 与无向图只有初始化时不同
  */
-public class ListDG {
-    // 邻接表中表对应的链表的顶点
-    private class ENode {
-        int ivex;       // 该边所指向的顶点的位置
-        ENode nextEdge; // 指向下一条弧的指针
-    }
+public class MatrixDG {
+    private char[] mVexs;       // 顶点集合
+    private int[][] mMatrix;    // 邻接矩阵
 
-    // 邻接表中表的顶点
-    private class VNode {
-        char data;          // 顶点信息
-        ENode firstEdge;    // 指向第一条依附该顶点的弧
-    };
-
-    private VNode[] mVexs;  // 顶点数组
-
-    ////////////////////////////辅助//////////////////////////////
+    /////////////////////辅助///////////////////////////
     /*
      * 返回ch位置
      */
     private int getPosition(char ch) {
         for(int i=0; i<mVexs.length; i++)
-            if(mVexs[i].data==ch)
+            if(mVexs[i]==ch)
                 return i;
         return -1;
     }
@@ -40,6 +27,7 @@ public class ListDG {
      */
     private char readChar() {
         char ch='0';
+
         do {
             try {
                 ch = (char)System.in.read();
@@ -58,12 +46,12 @@ public class ListDG {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-    ////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////
     /*
      * 创建图(自己输入数据)
      */
-    public ListDG() {
+    public MatrixDG() {
 
         // 输入"顶点数"和"边数"
         System.out.printf("input vertex number: ");
@@ -76,16 +64,14 @@ public class ListDG {
         }
 
         // 初始化"顶点"
-        mVexs = new VNode[vlen];
+        mVexs = new char[vlen];
         for (int i = 0; i < mVexs.length; i++) {
             System.out.printf("vertex(%d): ", i);
-            mVexs[i] = new VNode();
-            mVexs[i].data = readChar();
-            mVexs[i].firstEdge = null;
+            mVexs[i] = readChar();
         }
 
         // 初始化"边"
-        //mMatrix = new int[vlen][vlen];
+        mMatrix = new int[vlen][vlen];
         for (int i = 0; i < elen; i++) {
             // 读取边的起始顶点和结束顶点
             System.out.printf("edge(%d):", i);
@@ -93,14 +79,13 @@ public class ListDG {
             char c2 = readChar();
             int p1 = getPosition(c1);
             int p2 = getPosition(c2);
-            // 初始化node1
-            ENode node1 = new ENode();
-            node1.ivex = p2;
-            // 将node1链接到"p1所在链表的末尾"
-            if(mVexs[p1].firstEdge == null)
-                mVexs[p1].firstEdge = node1;
-            else
-                linkLast(mVexs[p1].firstEdge, node1);
+
+            if (p1==-1 || p2==-1) {
+                System.out.printf("input error: invalid edge!\n");
+                return ;
+            }
+
+            mMatrix[p1][p2] = 1;
         }
     }
 
@@ -111,51 +96,59 @@ public class ListDG {
      *     vexs  -- 顶点数组
      *     edges -- 边数组
      */
-    public ListDG(char[] vexs, char[][] edges) {
+    public MatrixDG(char[] vexs, char[][] edges) {
 
         // 初始化"顶点数"和"边数"
         int vlen = vexs.length;
         int elen = edges.length;
 
         // 初始化"顶点"
-        mVexs = new VNode[vlen];
-        for (int i = 0; i < mVexs.length; i++) {
-            mVexs[i] = new VNode();
-            mVexs[i].data = vexs[i];
-            mVexs[i].firstEdge = null;
-        }
+        mVexs = new char[vlen];
+        for (int i = 0; i < mVexs.length; i++)
+            mVexs[i] = vexs[i];
 
         // 初始化"边"
+        mMatrix = new int[vlen][vlen];
         for (int i = 0; i < elen; i++) {
-            // 读取边的起始顶点和结束顶点
-            char c1 = edges[i][0];
-            char c2 = edges[i][1];
             // 读取边的起始顶点和结束顶点
             int p1 = getPosition(edges[i][0]);
             int p2 = getPosition(edges[i][1]);
 
-            // 初始化node1
-            ENode node1 = new ENode();
-            node1.ivex = p2;
-            // 将node1链接到"p1所在链表的末尾"
-            if(mVexs[p1].firstEdge == null)
-                mVexs[p1].firstEdge = node1;
-            else
-                linkLast(mVexs[p1].firstEdge, node1);
+            mMatrix[p1][p2] = 1;
         }
     }
 
+    ///////////////////////// DFS /////////////////////////////////////
     /*
-     * 将node节点链接到list的最后
+     * 返回顶点v的第一个邻接顶点的索引，失败则返回-1
      */
-    private void linkLast(ENode list, ENode node) {
-        ENode p = list;
-        while(p.nextEdge!=null)
-            p = p.nextEdge;
-        p.nextEdge = node;
+    private int firstVertex(int v) {
+
+        if (v<0 || v>(mVexs.length-1))
+            return -1;
+
+        for (int i = 0; i < mVexs.length; i++)
+            if (mMatrix[v][i] == 1)
+                return i;
+
+        return -1;
     }
 
-    //////////////////////DFS////////////////////////////
+    /*
+     * 返回顶点v相对于w的下一个邻接顶点的索引，失败则返回-1
+     */
+    private int nextVertex(int v, int w) {
+
+        if (v<0 || v>(mVexs.length-1) || w<0 || w>(mVexs.length-1))
+            return -1;
+
+        for (int i = w + 1; i < mVexs.length; i++)
+            if (mMatrix[v][i] == 1)
+                return i;
+
+        return -1;
+    }
+
     /*
      * 深度优先搜索遍历图
      */
@@ -178,19 +171,17 @@ public class ListDG {
      * 深度优先搜索遍历图的递归实现
      */
     private void DFS(int i, boolean[] visited) {
-        ENode node;
 
         visited[i] = true;
-        System.out.printf("%c ", mVexs[i].data);
-        node = mVexs[i].firstEdge;
-        while (node != null) {
-            if (!visited[node.ivex])
-                DFS(node.ivex, visited);
-            node = node.nextEdge;
+        System.out.printf("%c ", mVexs[i]);
+        // 遍历该顶点的所有邻接顶点。若是没有访问过，那么继续往下走
+        for (int w = firstVertex(i); w >= 0; w = nextVertex(i, w)) {
+            if (!visited[w])
+                DFS(w, visited);
         }
     }
 
-    //////////////////BFS/////////////////////
+    //////////////////////// BFS //////////////////////////////////////////
     /*
      * 广度优先搜索（类似于树的层次遍历）
      */
@@ -207,42 +198,33 @@ public class ListDG {
         for (int i = 0; i < mVexs.length; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                System.out.printf("%c ", mVexs[i].data);
+                System.out.printf("%c ", mVexs[i]);
                 queue[rear++] = i;  // 入队列
             }
 
             while (head != rear) {
                 int j = queue[head++];  // 出队列
-                ENode node = mVexs[j].firstEdge;
-                while (node != null) {
-                    int k = node.ivex;
-                    if (!visited[k])
-                    {
+                for (int k = firstVertex(j); k >= 0; k = nextVertex(j, k)) { //k是为访问的邻接顶点
+                    if (!visited[k]) {
                         visited[k] = true;
-                        System.out.printf("%c ", mVexs[k].data);
+                        System.out.printf("%c ", mVexs[k]);
                         queue[rear++] = k;
                     }
-                    node = node.nextEdge;
                 }
             }
         }
         System.out.printf("\n");
     }
 
-    //////////////////test/////////////////////
-
+    ////////////////////////////////////////////////////////////////////////
     /*
      * 打印矩阵队列图
      */
     public void print() {
-        System.out.printf("List Graph:\n");
+        System.out.printf("Martix Graph:\n");
         for (int i = 0; i < mVexs.length; i++) {
-            System.out.printf("%d(%c): ", i, mVexs[i].data);
-            ENode node = mVexs[i].firstEdge;
-            while (node != null) {
-                System.out.printf("%d(%c) ", node.ivex, mVexs[node.ivex].data);
-                node = node.nextEdge;
-            }
+            for (int j = 0; j < mVexs.length; j++)
+                System.out.printf("%d ", mMatrix[i][j]);
             System.out.printf("\n");
         }
     }
@@ -259,12 +241,12 @@ public class ListDG {
                 {'E', 'B'},
                 {'E', 'D'},
                 {'F', 'G'}};
-        ListDG pG;
+        MatrixDG pG;
 
         // 自定义"图"(输入矩阵队列)
-        //pG = new ListDG();
+        //pG = new MatrixDG();
         // 采用已有的"图"
-        pG = new ListDG(vexs, edges);
+        pG = new MatrixDG(vexs, edges);
 
         pG.print();   // 打印图
         pG.DFS();     // 深度优先遍历
