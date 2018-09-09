@@ -3,6 +3,7 @@ package graph.shortestPath;
 /**
  * 邻接矩阵表示的Dijkstra算法
  * 有向无环图，无负值权重边
+ * O(V^2)
  */
 public class Dijkstra {
 

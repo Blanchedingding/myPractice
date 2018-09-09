@@ -2,6 +2,7 @@ package graph.shortestPath;
 
 /**
  * Floyd算法获取最短路径(邻接矩阵),O(V^3)
+ * 负权重的边可以存在，但是没有负环
  */
 public class Floyd {
     private int mEdgNum;        // 边的数量
@@ -50,12 +51,14 @@ public class Floyd {
      *     dist -- 长度数组。即，dist[i][j]=sum表示，"顶点i"到"顶点j"的最短路径的长度是sum。
      */
     public void floyd(int[][] path, int[][] dist) {
+        int[][] path2 = new int[mVexs.length][mVexs.length];
 
         // 初始化
         for (int i = 0; i < mVexs.length; i++) {
             for (int j = 0; j < mVexs.length; j++) {
                 dist[i][j] = mMatrix[i][j];    // "顶点i"到"顶点j"的路径长度为"i到j的权值"。
                 path[i][j] = j;                // "顶点i"到"顶点j"的最短路径是经过顶点j。
+                path2[i][j] = j;
             }
         }
 
@@ -69,8 +72,9 @@ public class Floyd {
                         // "i到j最短路径"对应的值设，为更小的一个(即经过k)
                         dist[i][j] = tmp;
                         // "i到j最短路径"对应的路径，经过k
-//                        path[i][j] = path[i][k];
-                        path[i][j] = k;
+                        path[i][j] = path[i][k];
+                        //第二种记录path方法
+                        path2[i][j] = k;
                     }
                 }
             }
@@ -89,7 +93,37 @@ public class Floyd {
                 System.out.printf("%2d  ", path[i][j]);
             System.out.printf("\n");
         }
+
+        int start = 0, end = 3;
+        System.out.println("way1:" + start + " to " + end + " the shortest path: " + dist[start][end]);
+        System.out.println("path: ");
+        System.out.print(start + "->");
+        printPath(start, end, path2);
+        System.out.print(end);
+
+        System.out.println();
+        System.out.println("way2:" + start + " to " + end + " the shortest path: " + dist[start][end]);
+        System.out.println("path: ");
+        System.out.print(start + " ");
+        printPath2(start, end, path2);
     }
+
+    public void printPath(int start, int end, int[][] path){
+        if(path[start][end] == end) return;
+        System.out.print(path[start][end] + "->");
+        printPath(path[start][end], end, path);
+    }
+
+    public void printPath2(int start, int end, int[][] path2){
+        if(start == end) return;
+        if(path2[start][end] == end)
+            System.out.print(end + " ");
+        else {
+            printPath2(start, path2[start][end], path2);
+            printPath2(path2[start][end], end, path2);
+        }
+    }
+
 
     public static void main(String[] args) {
         char[] vexs = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
