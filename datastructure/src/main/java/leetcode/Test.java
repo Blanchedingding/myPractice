@@ -47,14 +47,19 @@ public class Test {
 
 	
 	public static void main(String[] args) {
-		Test t = new Test();
-//		System.out.println(t.getPermutation(4,9));
-//		System.out.println(t.numSquares(51));
-		System.out.println(Integer.toBinaryString(128));
-		System.out.println(Integer.toBinaryString(192));
-		System.out.println(Integer.toBinaryString(224));
-		System.out.println(Integer.toBinaryString(240));
-		System.out.println(Integer.toBinaryString(248));
+//		Test t = new Test();
+////		System.out.println(t.getPermutation(4,9));
+////		System.out.println(t.numSquares(51));
+//		System.out.println(Integer.toBinaryString(128));
+//		System.out.println(Integer.toBinaryString(192));
+//		System.out.println(Integer.toBinaryString(224));
+//		System.out.println(Integer.toBinaryString(240));
+//		System.out.println(Integer.toBinaryString(248));
+		byte[] a = new byte[2];
+		Test[] t = new Test[3];
+		Integer[] r = new Integer[2];
+//		System.out.println(Arrays.toString(a));
+
 
 	}
 
