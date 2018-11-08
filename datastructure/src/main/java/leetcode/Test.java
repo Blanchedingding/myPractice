@@ -45,10 +45,19 @@ public class Test {
 	}
 
 
+	public int trailingZeroes(int n) {
+		int sum = n / 5;
+		int t = n / 5;
+		while(t >= 5){
+			t = t / 5;
+			sum += t;
+		}
+		return sum;
+	}
 	
 	public static void main(String[] args) {
-//		Test t = new Test();
-////		System.out.println(t.getPermutation(4,9));
+		Test t = new Test();
+		System.out.println(t.trailingZeroes(30));
 ////		System.out.println(t.numSquares(51));
 //		System.out.println(Integer.toBinaryString(128));
 //		System.out.println(Integer.toBinaryString(192));
@@ -56,7 +65,7 @@ public class Test {
 //		System.out.println(Integer.toBinaryString(240));
 //		System.out.println(Integer.toBinaryString(248));
 		byte[] a = new byte[2];
-		Test[] t = new Test[3];
+//		Test[] t = new Test[3];
 		Integer[] r = new Integer[2];
 //		System.out.println(Arrays.toString(a));
 
