@@ -4,6 +4,11 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 class Test2 {
 
@@ -16,6 +21,11 @@ class Test2 {
 
     public void test(){
         System.out.println(this.temp);
+    }
+
+    protected void finalize() throws java.lang.Throwable{
+        super.finalize();
+        System.out.println("Vehicle Object  is disposed");
     }
 
 }
