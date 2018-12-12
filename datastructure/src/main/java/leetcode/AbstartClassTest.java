@@ -9,10 +9,18 @@ package leetcode;
  *
  * 3）如果一个类继承于一个抽象类，则子类必须实现父类的抽象方法。如果子类没有实现父类的抽象方法，则必须将子类也定义为为abstract类。
  */
-public abstract class AbstartClassTest {
+public  class AbstartClassTest {
+
+    private final leetcode.RNN RNN = new RNN();
 
     public AbstartClassTest(){
 
+
+    }
+
+
+    int three(int b) {
+        return RNN.three(b);
     }
 
     static final int i = 0;
@@ -27,10 +35,9 @@ public abstract class AbstartClassTest {
         return 1;
     }
 
-    abstract int two(int a);
-
-    int three(int b){
-        return 4;
+    int two(int a){
+        RNN.three(2);
+        return 2;
     }
 
 }

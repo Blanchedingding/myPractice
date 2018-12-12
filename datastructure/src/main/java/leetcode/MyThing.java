@@ -1,13 +1,19 @@
 package leetcode;
 
-class Thing {
-    public Thing(int i) {
-
-    }
-}
+//class Thing {
+//    public Thing(int i) {
+//
+//    }
+//}
 
 class SomeOtherClass {
+
+    static int abc(){
+        return 2;
+    }
+
     static int func() {
+        abc();
         return Math.round(12L);
     }
 }
@@ -24,15 +30,15 @@ class SomeOtherClass {
 //}
 
 //正确方法：私有构造器捕获——交替构造器调用机制（alternate constructor invocation）
-public class MyThing extends Thing {
-    private final int arg;
-
-    public MyThing() {
-        this(SomeOtherClass.func());
-    }
-
-    private MyThing(int i) {
-        super(i);
-        arg = i;
-    }
-}
+//public class MyThing extends Thing {
+////    private final int arg;
+////
+////    public MyThing() {
+//////        this(SomeOtherClass.func());
+////    }
+////
+////    private MyThing(int i) {
+////        super(i);
+////        arg = i;
+////    }
+//}

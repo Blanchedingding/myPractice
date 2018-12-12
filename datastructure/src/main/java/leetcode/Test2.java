@@ -1,26 +1,28 @@
 package leetcode;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-class Test2 {
+
+public class Test2 {
 
     int temp ;
+
+    final Map<String, String> map = new HashMap<>();;
 
     public Test2(){
         test();
         temp = 2;
+//        map
     }
 
     public void test(){
         System.out.println(this.temp);
+
     }
 
     protected void finalize() throws java.lang.Throwable{
