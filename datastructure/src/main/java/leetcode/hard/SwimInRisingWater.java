@@ -43,11 +43,6 @@ import java.util.*;
  */
 public class SwimInRisingWater {
 
-    int[][] directions = new int[][]{
-            {0,1},{1,0},{0,-1},{-1,0}
-    };
-    int curT = Integer.MAX_VALUE;
-
     class Node {
         public int val;
         public int x;
@@ -95,40 +90,6 @@ public class SwimInRisingWater {
     public boolean isInGrid(int x, int y, int n, int m) {
         if(x >= 0 && x < n && y >= 0 && y < m) return true;
         return false;
-    }
-
-    public int swimInWater2(int[][] grid) {
-        int n = grid.length;
-        boolean[][] visit = new boolean[n][n];
-        visit[0][0] = true;
-        helper(grid, 0, 0, n, grid[0][0], visit);
-        return curT;
-    }
-
-    private void helper(int[][] grid, int i, int j, int n, int t, boolean[][] visit){
-//        Arrays.stream(visit).forEach(v -> System.out.println(Arrays.toString(v)));
-//        System.out.println("t=" + t);
-//        System.out.println("i=" + i + " j=" + j + " n=" + n);
-//        System.out.println("==================");
-
-        if(i == n-1 && j == n-1) {
-            curT = Math.min(t, curT);
-            return;
-        }
-
-        for(int[] direction: directions){
-            if(0<= i+direction[0] && i+direction[0] < n && 0 <= j+direction[1] && j+direction[1] < n ){
-                if(visit[i + direction[0]][j + direction[1]] == false) {
-                    int nextT = Math.max(t, grid[i + direction[0]][j + direction[1]]);
-                    if(nextT < curT){
-                        visit[i + direction[0]][j + direction[1]] = true;
-                        helper(grid, i + direction[0], j + direction[1], n, nextT, visit);
-                        visit[i + direction[0]][j + direction[1]] = false;
-                    }
-                }
-            }
-        }
-
     }
 
     public static void main(String[] args) {

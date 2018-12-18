@@ -3,7 +3,8 @@ package leetcode.medium;
 /**
  * You are given an array of positive integers nums.
  *
- * Count and print the number of (contiguous) subarrays where the product of all the elements in the subarray is less than k.
+ * Count and print the number of (contiguous) subarrays
+ * where the product of all the elements in the subarray is less than k.
  *
  * Example 1:
  * Input: nums = [10, 5, 2, 6], k = 100
