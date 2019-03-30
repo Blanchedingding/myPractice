@@ -43,24 +43,18 @@ public class ChampagneTower {
         double[][] result = new double[101][101];
         result[0][0] = poured;
         for(int j = 0; j < 100; j++){
-//            boolean hasLeft = false;
             for(int k = 0; k <= j; k ++){
                 if(result[j][k] > 1){
                     result[j + 1][k] += (result[j][k] - 1) / 2;
                     result[j + 1][k + 1] += (result[j][k] - 1) / 2;
                     result[j][k] = 1;
-//                    hasLeft = true;
                 }
             }
-//            if(!hasLeft) break;
             for(int h = 0; h < 4; h ++){
                 System.out.println(Arrays.toString(result[h]));
             }
             System.out.println("===========");
         }
-
-
-
         return result[query_row][query_glass];
     }
 

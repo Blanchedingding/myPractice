@@ -27,3 +27,4 @@ enum Singleton2{
         return a * 2;
     }
 }
+

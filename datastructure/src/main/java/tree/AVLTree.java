@@ -318,9 +318,9 @@ public class AVLTree <T extends Comparable<T>>{
                     tree.right = remove(tree.right, min);
                 }
             } else {
-                AVLTreeNode<T> tmp = tree;
+//                AVLTreeNode<T> tmp = tree;
                 tree = (tree.left!=null) ? tree.left : tree.right;
-                tmp = null;
+//                tmp = null;
             }
         }
         if(tree!= null) tree.height = max( height(tree.left), height(tree.right)) + 1;

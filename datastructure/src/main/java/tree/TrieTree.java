@@ -14,6 +14,7 @@ public class TrieTree {
     TrieNode root;
 
     public TrieTree(){
+        //根为空
         this.root = new TrieNode();
     }
 

@@ -30,7 +30,9 @@ public class Java8NewFeature7 {
     //////////////// 7. Nashorn JavaScript ////////////////////
     /**
      * Nashorn 一个 javascript 引擎。
-     * 从JDK 1.8开始，Nashorn取代Rhino(JDK 1.6, JDK1.7)成为Java的嵌入式JavaScript引擎。Nashorn完全支持ECMAScript 5.1规范以及一些扩展。它使用基于JSR 292的新语言特性，其中包含在JDK 7中引入的 invokedynamic，将JavaScript编译成Java字节码。
+     * 从JDK 1.8开始，Nashorn取代Rhino(JDK 1.6, JDK1.7)成为Java的嵌入式JavaScript引擎。
+     * Nashorn完全支持ECMAScript 5.1规范以及一些扩展。
+     * 它使用基于JSR 292的新语言特性，其中包含在JDK 7中引入的 invokedynamic，将JavaScript编译成Java字节码。
      * 与先前的Rhino实现相比，这带来了2到10倍的性能提升。
      *
      */

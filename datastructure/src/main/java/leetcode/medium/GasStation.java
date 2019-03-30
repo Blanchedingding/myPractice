@@ -1,7 +1,8 @@
 package leetcode.medium;
 
 /**
- * 很多车站围成一圈，gas[]是在每个车站加的油， cost[]是这个加油站到下一个要消耗的，求起始车站，如果不能travel一圈，返回-1
+ * 很多车站围成一圈，gas[]是在每个车站加的油， cost[]是这个加油站到下一个要消耗的，求起始车站，
+ * 如果不能travel一圈，返回-1
  * There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
  *
  * You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next station (i+1). You begin the journey with an empty tank at one of the gas stations.
