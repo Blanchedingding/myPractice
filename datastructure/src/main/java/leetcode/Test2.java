@@ -12,11 +12,12 @@ public class Test2 {
 
     int temp ;
 
-    final Map<String, String> map = new HashMap<>();;
+    final Map<String, String> map = new HashMap<>();
 
     public Test2(){
         test();
         temp = 2;
+        ArrayList<Integer> a = new ArrayList<>();
 //        map
     }
 

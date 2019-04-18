@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 /**
  * 所有节点对的最短路径
- * @ClassName: Johnson 时间复杂度：EVlgV
- * @Description: 稀疏图上的johnson算法，由于稀疏图的数据结构推荐使用邻接链表，所以这里也采用邻接链表，该算法也是给稀疏图使用的，如果是密集图，推荐使用实现较为简单的FloydWashall算法，可以保证V^3的时间复杂度
+ * 时间复杂度为 O(V^2logV + VE)
+ *
+ * 稀疏图上的johnson算法，由于稀疏图的数据结构推荐使用邻接链表，所以这里也采用邻接链表，该算法也是给稀疏图使用的，如果是密集图，推荐使用实现较为简单的FloydWashall算法，可以保证V^3的时间复杂度
  *
  * Johnson算法使用的方式相当于给每个边都加了一个权重，使得所有边都为非负数，这样就能对每个边使用较为高效的Dijkstra算法。
  * 注意的是不能简单的给每个边加相同的值然后使得所有边都变成非负数，原因为假设从a->b有两条路径，一条权重为1+1，一条为2，本应权重和相等；如果都加1，则变成了2+2和3，不一致了，就会导致更新了不该更新的边
@@ -67,6 +68,7 @@ public class Johnson{
         System.out.println("G' :");
         initD(g);
         print(g);
+        //运行时间为 O(V2logV + VE)
         for(int u = 0;u < ver;u++){
             dijkstra(g,u);
             for(int v = 0;v < ver;v++){

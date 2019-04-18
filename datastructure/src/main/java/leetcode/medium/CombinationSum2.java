@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Given a collection of candidate numbers (candidates) and a target number (target),
@@ -72,5 +74,20 @@ public class CombinationSum2 {
         CombinationSum2 c = new CombinationSum2();
         int[] i = new int[]{10,1,2,7,6,1,5};
         System.out.println(Arrays.toString(c.combinationSum2(i,8).toArray()));
+
+//        String REGEX = "a*b";
+//        String INPUT = "aabfooaabfooabfoobkkk";
+//        String REPLACE = "-";
+//        Pattern p = Pattern.compile(REGEX);
+//        // 获取 matcher 对象
+//        Matcher m = p.matcher(INPUT);
+//        StringBuffer sb = new StringBuffer();
+//        while(m.find()){
+//            m.appendReplacement(sb,REPLACE);
+//            System.out.println(m.start() + "   " + m.end());
+//            System.out.println(sb.toString());
+//        }
+//        m.appendTail(sb);
+//        System.out.println(sb.toString());
     }
 }

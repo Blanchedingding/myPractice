@@ -168,6 +168,7 @@ public class ListDG {
         for (int i = 0; i < mVexs.length; i++) {
             if (!visited[i])
                 DFS(i, visited);
+            System.out.println();
         }
         System.out.printf("\n");
     }
