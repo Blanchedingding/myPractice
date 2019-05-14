@@ -9,7 +9,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.github.haifengl:smile-core:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.haifengl:smile-data:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.haifengl:smile-math:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: com.github.haifengl:smile-graph:1.5.2" level="project" />
   </component>
 </module>
