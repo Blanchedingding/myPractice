@@ -16,5 +16,29 @@
     <orderEntry type="library" name="Maven: com.github.haifengl:smile-math:1.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: com.github.haifengl:smile-graph:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.gumtreediff:core:2.1.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.atteo.classindex:classindex:3.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.mpkorstanje:simmetrics-core:3.2.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.guava:guava:18.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: net.sf.trove4j:trove4j:3.0.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jgrapht:jgrapht-core:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.gumtreediff:client:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.gumtreediff:gen.jdt:2.1.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.jdt:org.eclipse.jdt.core:3.16.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.resources:3.13.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.expressions:3.6.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.runtime:3.15.200" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.osgi:3.13.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.equinox.common:3.10.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.jobs:3.10.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.equinox.registry:3.8.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.equinox.preferences:3.7.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.contenttype:3.7.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.equinox.app:1.4.100" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.filesystem:1.7.300" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.text:3.8.100" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.commands:3.9.300" level="project" />
   </component>
 </module>

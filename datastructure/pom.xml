@@ -20,6 +20,31 @@
             <artifactId>smile-core</artifactId>
             <version>1.5.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.gumtreediff/core -->
+        <dependency>
+            <groupId>com.github.gumtreediff</groupId>
+            <artifactId>core</artifactId>
+            <version>2.1.2</version>
+            <!--<scope>runtime</scope>-->
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.gumtreediff/client -->
+        <dependency>
+            <groupId>com.github.gumtreediff</groupId>
+            <artifactId>client</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.gumtreediff/gen.jdt -->
+        <dependency>
+            <groupId>com.github.gumtreediff</groupId>
+            <artifactId>gen.jdt</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+
+
     </dependencies>
 
 </project>
