@@ -1,5 +1,10 @@
 package leetcode.hard;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+
 /**
  * Strings A and B are K-similar (for some non-negative integer K)
  * if we can swap the positions of two letters in A exactly K times
@@ -30,9 +35,34 @@ package leetcode.hard;
 public class KSimilarStrings {
 
     public int kSimilarity(String A, String B) {
-        int m = A.length(), n = B.length();
-        char[] a = A.toCharArray(), b = B.toCharArray();
+        if (A.equals(B)) return 0;
+        Queue<String> q= new LinkedList<>();
+        Set<String> vis= new HashSet<>();
+        q.add(A);
+        int res = 0;
+        while(!q.isEmpty()){
+            res ++;
+            for (int sz=q.size(); sz>0; sz--){
+                String s= q.poll();
+                int i=0;
+                while (s.charAt(i)==B.charAt(i)) i++;
+                for (int j=i+1; j<s.length(); j++){
+                    if (s.charAt(j)==B.charAt(j) || s.charAt(j)!=B.charAt(i) ) continue;
+                    String temp= swap(s, i, j);
+                    if (temp.equals(B)) return res;
+                    if (vis.add(temp)) q.add(temp);
+                }
+            }
+        }
+        return res;
+    }
 
+    public String swap(String s, int i, int j){
+        char[] ca=s.toCharArray();
+        char temp=ca[i];
+        ca[i]=ca[j];
+        ca[j]=temp;
+        return new String(ca);
     }
 
     public static void main(String[] args) {

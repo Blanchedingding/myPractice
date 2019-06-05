@@ -40,5 +40,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.filesystem:1.7.300" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.text:3.8.100" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.eclipse.platform:org.eclipse.core.commands:3.9.300" level="project" />
+    <orderEntry type="library" name="Maven: cn.dingding:girvan-newman:1.0" level="project" />
   </component>
 </module>

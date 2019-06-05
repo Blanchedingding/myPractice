@@ -1,4 +1,4 @@
-package graph.clustering;
+package graph.clustering.kmeans;
 
 import smile.clustering.KMeans;
 

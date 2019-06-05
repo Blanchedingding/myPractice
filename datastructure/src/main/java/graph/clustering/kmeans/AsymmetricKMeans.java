@@ -1,7 +1,6 @@
-package graph.clustering;
+package graph.clustering.kmeans;
 
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class AsymmetricKMeans {

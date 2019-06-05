@@ -1,4 +1,4 @@
-package graph.clustering;
+package graph.clustering.spectralClustering;
 
 import smile.clustering.SpectralClustering;
 
