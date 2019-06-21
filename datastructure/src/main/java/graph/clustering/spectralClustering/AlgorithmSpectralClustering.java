@@ -140,16 +140,34 @@ public class AlgorithmSpectralClustering {
         return G;
     }
 
+
+    public static double[][] mockData5(){
+        int size = 1000;
+        double[][] G = new double[size][size];
+        for(int i = 0; i < size; i++){
+            for(int j = i + 1; j < size; j++){
+                G[i][j] = Math.random ();
+                G[j][i] = G[i][j];
+//				double random = Math.random();
+//				if(random > 0.5){
+//					G[i][j] = Math.random ();
+//				}
+            }
+        }
+        return G;
+    }
+
     public static void main(String[] args) {
+        long begin = System.currentTimeMillis();
 
 //    	double G[][] = mockData1();
 //    	double G[][] = mockData2();
 //        double G[][] = mockData3();
-        double G[][] = mockData4();
+        double G[][] = mockData5();
 
         AlgorithmSpectralClustering sw = new AlgorithmSpectralClustering();
         Map<Integer, List<Integer>> clusters = new HashMap<>();
-        sw.spectralClustering(G, 4, clusters);
+        sw.spectralClustering(G, 50, clusters);
         Iterator<Integer> iterator = clusters.keySet().iterator();
 
         while (iterator.hasNext()) {
@@ -179,6 +197,9 @@ public class AlgorithmSpectralClustering {
             }
             System.out.println();
         }
+
+        long end = System.currentTimeMillis();
+        System.out.println("cost " + (end - begin) + " ms");
     }
 
 }
