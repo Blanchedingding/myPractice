@@ -35,33 +35,49 @@ public class CommunityDetectionTest {
     }
 
     public static void main(String[] args) {
-        double G[][] = new double[8][8];
-        G[0][1] = 3;
-        G[0][2] = 3;
-        G[0][3] = 3;
-        G[1][2] = 3;
-        G[1][3] = 3;
-        G[1][7] = 1;
-        G[2][3] = 3;
-        G[4][5] = 3;
-        G[4][6] = 2;
-        G[4][7] = 2;
-        G[5][6] = 2;
-        G[5][7] = 2;
+//        double G[][] = new double[8][8];
+//        G[0][1] = 3;
+//        G[0][2] = 3;
+//        G[0][3] = 3;
+//        G[1][2] = 3;
+//        G[1][3] = 3;
+//        G[1][7] = 1;
+//        G[2][3] = 3;
+//        G[4][5] = 3;
+//        G[4][6] = 2;
+//        G[4][7] = 2;
+//        G[5][6] = 2;
+//        G[5][7] = 2;
+//
+//        G[1][0] = 3;
+//        G[2][0] = 3;
+//        G[3][0] = 3;
+//        G[2][1] = 3;
+//        G[3][1] = 3;
+//        G[7][1] = 1;
+//        G[3][2] = 3;
+//        G[5][4] = 3;
+//        G[6][4] = 2;
+//        G[7][4] = 2;
+//        G[6][5] = 2;
+//        G[7][5] = 2;
 
-        G[1][0] = 3;
-        G[2][0] = 3;
-        G[3][0] = 3;
-        G[2][1] = 3;
-        G[3][1] = 3;
-        G[7][1] = 1;
-        G[3][2] = 3;
-        G[5][4] = 3;
-        G[6][4] = 2;
-        G[7][4] = 2;
-        G[6][5] = 2;
-        G[7][5] = 2;
+        long begin = System.currentTimeMillis();
+        int size = 1000;
+        double[][] G = new double[size][size];
+        for(int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                double r = Math.random();
+                if (r <= 0.44) {
+                    G[i][j] = Math.random();
+                    G[j][i] = G[i][j];
+                }
+            }
+        }
         CommunityDetectionTest cd = new CommunityDetectionTest();
         cd.communityDetection(G);
+
+        long end = System.currentTimeMillis();
+        System.out.println("cost " + (end - begin) + " ms");
     }
 }

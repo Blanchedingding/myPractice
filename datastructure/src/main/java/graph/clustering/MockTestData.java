@@ -1,11 +1,29 @@
 package graph.clustering;
 
 import graph.clustering.fastNewman.FastNewmanAlgothrim;
+import graph.clustering.louvain.CommunityDetectionAlgorithm;
+import graph.clustering.louvain.Louvain;
+import smile.clustering.SpectralClustering;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class MockTestData {
+
+    public static void spectralClusterint(double[][] G, int k, List<String> tableList){
+        Map<Integer, List<Integer>> clusters = new HashMap<>();
+        SpectralClustering sc = new SpectralClustering(G, k);
+        for(int i = 0; i < sc.getNumClusters(); i ++){
+            clusters.put(i, new ArrayList<>());
+        }
+        int[] labels = sc.getClusterLabel();
+        for(int i = 0; i < labels.length; i++){
+            clusters.get(labels[i]).add(i);
+        }
+
+        Map<Integer, List<String>> result = new HashMap<>();
+        translateResult(clusters, result, 1, tableList);
+    }
 
     public static void fastNewman(double[][] G, int k, List<String> tableList){
         for(int i = 0; i < G.length; i++){
@@ -17,6 +35,25 @@ public class MockTestData {
         f.calculate();
         Map<Integer, Map<Integer, List<Integer>>> process = f.getResult();
         printProcess(process, tableList);
+    }
+
+    public static void louvain(double[][] G, int k, List<String> tableList){
+        CommunityDetectionAlgorithm c = new CommunityDetectionAlgorithm(G);
+        Map<Integer, List<Integer>> clusters = c.calculate();
+        Map<Integer, List<String>> result = new HashMap<>();
+        translateResult(clusters, result,1, tableList);
+    }
+
+    private static Map<Integer, List<String>> translateResult(Map<Integer, List<Integer>> clusters, Map<Integer, List<String>> result, int groupNum, List<String> tableList){
+        System.out.println("----拆分结果：---");
+        for(int num: clusters.keySet()){
+            List<Integer> indexList = clusters.get(num);
+            List<String> group = indexList.stream().map(l -> tableList.get(l)).collect(Collectors.toList());
+            System.out.println("第"+ groupNum + "组：" + group);
+            result.put(groupNum, group);
+            groupNum++;
+        }
+        return result;
     }
 
 
@@ -140,6 +177,49 @@ public class MockTestData {
         };
         List<String> tableList = Arrays.asList(tableStrings);
 
-        fastNewman(GadjustWeight, 7, tableList);
+        //摘出共享度高的表
+        String[] tableStrings2 = {
+                "sys_dict",
+                "sys_area",
+                "sys_role",
+                "sys_user_role",
+                "sys_role_office",
+                "sys_menu",
+                "oa_test_audit",
+                "cms_article",
+                "cms_category",
+                "cms_site",
+                "cms_article_data",
+                "cms_comment",
+                "cms_guestbook",
+                "cms_link",
+                "sys_role_menu",
+                "gen_table",
+                "gen_scheme"
+        };
+        List<String> tableList2 = Arrays.asList(tableStrings2);
+
+//        fastNewman(GadjustWeight, 7, tableList);
+        louvain(G, 10, tableList);
+//        louvain(GwithoutSharedTables, 10, tableList2);
+
+        // 谱聚类不能呢共有独立的点，且必须是对称矩阵
+//        preProcess(GwithoutSharedTables);
+//        spectralClusterint(GwithoutSharedTables, 7, tableList2);
     }
+
+
+    public static void preProcess(double[][] G){
+        int n = G.length;
+        for(int i = 0; i < n; i++){
+            for(int j = i + 1; j < n; j++){
+                if(G[i][j] == 0){
+                    G[i][j] = 0.0000001;
+                    G[j][i] = 0.0000001;
+                }
+            }
+        }
+    }
+
+
 }

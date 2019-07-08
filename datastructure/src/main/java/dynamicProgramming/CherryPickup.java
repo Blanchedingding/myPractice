@@ -40,7 +40,7 @@ public class CherryPickup {
     public int cherryPickup(int[][] grid) {
         int N = grid.length, M = (N << 1) - 1;
         int[][] dp = new int[N][N];
-        dp[0][0] = grid[0][0];
+        dp[0][0] = grid[0][0];//定义dp[i][j]表示从(0, 0)开始的两条长为k的路径上;而这两条长为k的路径的最终点为(i, k - i)和(j, k - j)
 
         for (int n = 1; n < M; n++) {
             for (int i = N - 1; i >= 0; i--) {

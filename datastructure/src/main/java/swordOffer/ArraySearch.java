@@ -279,7 +279,7 @@ public class ArraySearch {
     public ArrayList<Integer> printMatrix(int [][] matrix) {
         ArrayList<Integer> r = new ArrayList<Integer>();
         int row = matrix.length, col = matrix[0].length;
-        int[][] direction = new int[][]{{0,1},{1,0},{0,-1},{-1,0}};//右，下，左，上
+        int[][] direction = {{0,1},{1,0},{0,-1},{-1,0}};//右，下，左，上
         int count = 0,x=0,y=0,u=0;//x对应row，y对应col
         int left = 0, right = col - 1, top = 0, bottom = row - 1;
         while(count < row * col){
@@ -1116,7 +1116,7 @@ public class ArraySearch {
     //LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)...
     // 他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！
     // “红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子.....LL不高兴了,
-    // 他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。
+    // 他想了想,决定大\小王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。
     // 上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。
     // 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何，
     // 如果牌能组成顺子就输出true，否则就输出false。为了方便起见,你可以认为大小王是0。
@@ -1185,7 +1185,8 @@ public class ArraySearch {
         return num1;
     }
 
-    //将一个字符串转换成一个整数(实现Integer.valueOf(string)的功能，但是string不符合数字要求时返回0)，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0。
+    //将一个字符串转换成一个整数(实现Integer.valueOf(string)的功能，但是string不符合数字要求时返回0)，
+    // 要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0。
     //输入描述:
     //输入一个字符串,包括数字字母符号,可以为空
     //输出描述:

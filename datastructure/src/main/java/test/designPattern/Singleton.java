@@ -9,7 +9,7 @@ public class Singleton {
         private final static Singleton INSTANCE= new Singleton();
     }
 
-    public Singleton getInstance(){
+    public static final Singleton getInstance(){
         return SingletonHolder.INSTANCE;
     }
 
