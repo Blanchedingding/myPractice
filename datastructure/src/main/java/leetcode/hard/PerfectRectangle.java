@@ -10,7 +10,6 @@ import java.util.*;
  * For example, a unit square is represented as [1,1,2,2].
  * (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).
  *
- *
  * Example 1:
  *
  * rectangles = [
@@ -22,9 +21,6 @@ import java.util.*;
  * ]
  *
  * Return true. All 5 rectangles together form an exact cover of a rectangular region.
- *
- *
- *
  *
  * Example 2:
  *

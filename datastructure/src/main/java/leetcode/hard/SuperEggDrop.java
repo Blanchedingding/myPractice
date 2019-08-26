@@ -35,6 +35,8 @@ package leetcode.hard;
  * Note:
  * 1 <= K <= 100
  * 1 <= N <= 10000
+ *
+ * https://www.cnblogs.com/Zzz-y/p/9468383.html
  */
 public class SuperEggDrop {
     //寻找给定K,F对应可搜索的楼层上界

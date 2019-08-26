@@ -48,7 +48,7 @@ public class CombinationSum1 {
         }
         for(int i = index; i < candidates.length; i++){
             if(candidates[i] <= left){
-                List<Integer> t = (List<Integer>)((ArrayList<Integer>)next).clone();
+                List<Integer> t = new ArrayList<>(next);
                 t.add(candidates[i]);
                 helper(candidates,target,result,left - candidates[i], t, i);
             }

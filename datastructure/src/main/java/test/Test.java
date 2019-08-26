@@ -2,6 +2,26 @@ package test;
 
 public class Test {
 
+    static int i = 1;
+    int j = 2;
+
+    static{
+        //只能给后面的静态变量赋值，不能访问，23333
+//        System.out.println(k);
+        k = 3;
+    }
+
+
+    {
+        k = 3;
+    }
+
+    static int k;
+
+    public Test(){
+
+    }
+
     public static void main(String[] args) {
         Integer a=1;
         Integer b=2;

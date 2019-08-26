@@ -42,7 +42,8 @@ public class KSimilarStrings {
         int res = 0;
         while(!q.isEmpty()){
             res ++;
-            for (int sz=q.size(); sz>0; sz--){
+            int sz=q.size();
+            for (; sz>0; sz--){
                 String s= q.poll();
                 int i=0;
                 while (s.charAt(i)==B.charAt(i)) i++;

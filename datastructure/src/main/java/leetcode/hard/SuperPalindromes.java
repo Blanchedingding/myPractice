@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Let's say a positive integer is a superpalindrome if it is a palindrome, and it is also the square of a palindrome.
+ * Let's say a positive integer is a superpalindrome if it is a palindrome,
+ * and it is also the square of a palindrome.
  *
- * Now, given two positive integers L and R (represented as strings), return the number of superpalindromes in the inclusive range [L, R].
- *
- *
+ * Now, given two positive integers L and R (represented as strings),
+ * return the number of superpalindromes in the inclusive range [L, R].
  *
  * Example 1:
  *

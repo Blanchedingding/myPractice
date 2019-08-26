@@ -64,8 +64,14 @@ public class PopulatingNextRightPointersinEachNode2 {
             Node tempChild = new Node();
             Node currentChild = tempChild;
             while (root!=null){
-                if(root.left != null) { currentChild.next = root.left; currentChild = currentChild.next;}
-                if(root.right != null) { currentChild.next = root.right; currentChild = currentChild.next;}
+                if(root.left != null) {
+                    currentChild.next = root.left;
+                    currentChild = currentChild.next;
+                }
+                if(root.right != null) {
+                    currentChild.next = root.right;
+                    currentChild = currentChild.next;
+                }
                 root = root.next;
             }
             root = tempChild.next;
